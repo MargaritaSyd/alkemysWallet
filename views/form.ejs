@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Registrá una operación!
+    <form action="/operation" method="POST" enctype="multipart/form-data">
+        <div>
+            <label> En concepto de: </label>
+            <input type="text" name="concept">
+        </div>
+        <div>
+            <label> Monto: </label>
+            <input type="number" name="amount">
+        </div>
+        <div>
+            <label> Fecha </label>
+            <input type="date" name="date">
+        </div>
+        <div>
+            <input type="radio" name="incomeOutcome" value="income">
+            <label>
+              Ingreso
+            </label>
+          </div>
+          <div>
+            <input type="radio" name="incomeOutcome" value="outcome" checked>
+            <label>
+              Egreso
+            </label>
+          </div>
+
+
+
+    </form>
+</body>
+</html>
