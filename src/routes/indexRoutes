@@ -4,7 +4,7 @@ const router = express.Router();
 const indexController = require('../controller/indexController');
 // const fileUploadProduct = require("../middlewares/productMiddleware");
 // const fileUploadUser = require("../middlewares/userMulter");
-// const userValidations = require('../middlewares/userValidation');
+//const userValidations = require('../middlewares/userValidation');
 // const logged = require("../middlewares/logged");
 // const notLogged = require("../middlewares/notLogged");
 // const notAdmin = require("../middlewares/notAdmin");
@@ -19,10 +19,12 @@ router.get('/new_operation' , indexController.operationForm);
 
 router.get('/all_operations' , indexController.allOperations);
 
-router.get('/login' , indexController.login)
+router.get('/login' , indexController.login);
 
-router.get('/register' , indexController.register)
+router.post('/login' , indexController.loginPost)
 
-router.post('/register' , indexController.registerPost)
+router.get('/register', indexController.register);
+
+router.post('/register' , indexController.registerPost);
 
 module.exports = router;
