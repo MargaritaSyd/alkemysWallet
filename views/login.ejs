@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <% if(locals.errorMessage != undefined){%>
+        <div class="cajaMensajeError">
+            <div class="mensajeError"> <p style= "color:red"> Credenciales Inválidas </p></div>
+        </div>
+    <%}%>
     <form action="/login" method="POST" >
         <div>
             <label> Email </label>

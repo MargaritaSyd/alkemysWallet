@@ -10,5 +10,11 @@
   "name": "cele",
   "mail": "cele@gmail.com",
   "password": "$2a$10$RIK26LSVnq1u7QSR1sZC9O/tVbwPs80kvOiZlNedcKhkm3dYBz7Ue"
+ },
+ {
+  "id": 3,
+  "name": "pepi",
+  "mail": "pepe@gmail.com",
+  "password": "$2a$10$OFwOGhBjG4rSBxu6ByPNnOGafsV4GGN0x/fYH3KTk6Bg1yPwtLNdK"
  }
 ]

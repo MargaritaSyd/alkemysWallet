@@ -38,17 +38,54 @@ let indexController = {
         res.render('login')
     },
     loginPost: (req,res) => {
-        //res.send("ok")
+        let errorMessage= 'Las credenciales son inválidas';
+        let userToLog
+        let notUser = false
         let userMail = req.body.mail
         for(let i=0; i<userList.length; i++){
-          // console.log(userList[i].mail)
-          if(userMail == userList[i].mail){
-              res.send("ok")
-          } else {
-              res.send("not")
-          }
+           if(userList[i].mail == userMail){
+              userToLog = userList[i]
+           } else {
+               notUser = true
+           }
+           }
+
+        if(userToLog){
+            let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
+            if(passwordOk){
+            res.redirect('/')
+            } else {
+                res.render('login' , {errorMessage})
+            }
+        } else {
+            res.render('login' , {errorMessage})
         }
-   },
+         
+
+    },
+
+
+          
+     //  for (user of userList){
+
+        
+      //  for(let i=0; i<userList.length; i++){
+          // console.log(userList[i].mail)
+     //     if(userMail == user.mail){
+            //let userToLog = user
+       //     let passwordOk= bcryptjs.compareSync(req.body.password , user.password)
+        //    if(passwordOk){ 
+             // req.session.userLogged= userToLog;
+          //   res.send("ok")
+          //} else {
+          //    res.send("not")
+       //   }
+        
+
+          //} else {
+           // res.render("login" , {errorMessage})
+          //}
+        //}
 
     register: (req,res) => {
         res.render('register')
@@ -64,7 +101,6 @@ let indexController = {
             id: userList.length+1,
             name: req.body.name,
             mail: req.body.mail,
-            //password: req.body.password,
             password: bcryptjs.hashSync(req.body.password , 10)
         };
       

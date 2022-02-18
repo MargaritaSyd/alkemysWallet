@@ -3,15 +3,15 @@ const app = express();
 const path = require ('path');
 const indexRoutes = require('./src/routes/indexRoutes');
 
-//const session = require('express-session');
+const session = require('express-session');
 
-/*
+
 app.use(session({
 	secret: "It's a secret",
 	resave: false,
 	saveUninitialized: false,
 }));
-*/
+
 app.listen(process.env.PORT || 4000, function(){
     console.log('Servidor corriendo en puerto 4000');
 });
