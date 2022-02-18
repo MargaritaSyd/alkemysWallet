@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1> Bienvenido Usuario</h1>
-
+    <% if(userToLog){ %>
+    <h1> Bienvenido <%= userToLog.name %> </h1>
+    <% } else { %>
+        <h1> Bienvenido usuario </h1>
+    <% } %>
     <h2> Este es tu balance actual</h2>
 
     <h2> Tus últimos movimiento</h2>

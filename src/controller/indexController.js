@@ -1,14 +1,6 @@
 
-//const { promiseImpl } = require('ejs');
 let fs = require ('fs');
 let path = require ('path');
-//let db = require("../database/models");
-//let Op = db.Sequelize.Op;
-//const {validationResult} = require ('express-validator');
-//const { response } = require('express');
-//const mercadopago = require('mercadopago');
-//const { array } = require('../middlewares/productMiddleware');
-//const fetch = require("node-fetch");
 const bcryptjs = require('bcryptjs');
 
 let usersPath = path.join(__dirname,"../db/user.json");
@@ -53,7 +45,7 @@ let indexController = {
         if(userToLog){
             let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
             if(passwordOk){
-            res.redirect('/')
+            res.render('home' , {userToLog})
             } else {
                 res.render('login' , {errorMessage})
             }
@@ -64,28 +56,6 @@ let indexController = {
 
     },
 
-
-          
-     //  for (user of userList){
-
-        
-      //  for(let i=0; i<userList.length; i++){
-          // console.log(userList[i].mail)
-     //     if(userMail == user.mail){
-            //let userToLog = user
-       //     let passwordOk= bcryptjs.compareSync(req.body.password , user.password)
-        //    if(passwordOk){ 
-             // req.session.userLogged= userToLog;
-          //   res.send("ok")
-          //} else {
-          //    res.send("not")
-       //   }
-        
-
-          //} else {
-           // res.render("login" , {errorMessage})
-          //}
-        //}
 
     register: (req,res) => {
         res.render('register')
