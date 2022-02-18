@@ -6,35 +6,40 @@
     <title>Document</title>
 </head>
 <body>
-    Registrá una operación!
-    <form action="/operation" method="POST" enctype="multipart/form-data">
+   <h1> Registrá una operación: </h1>
+    <form action="/new_operation" method="POST">
         <div>
             <label> En concepto de: </label>
-            <input type="text" name="concept">
+            <input id="oneConcept" type="text" name="concept">
         </div>
         <div>
             <label> Monto: </label>
-            <input type="number" name="amount">
+            <input id="oneAmount" type="number" name="amount">
         </div>
         <div>
             <label> Fecha </label>
-            <input type="date" name="date">
+            <input id="oneDate" type="date" name="date">
         </div>
         <div>
-            <input type="radio" name="incomeOutcome" value="income">
+            <input id="oneIncome" type="radio" name="incomeOutcome" value="income">
             <label>
               Ingreso
             </label>
           </div>
           <div>
-            <input type="radio" name="incomeOutcome" value="outcome" checked>
+            <input id="oneOutcome" type="radio" name="incomeOutcome" value="outcome" checked>
             <label>
               Egreso
             </label>
           </div>
+          <div>
+            <button id="newOperationSubmit" type="submit">Registrar operación</button>
+        </div>
 
 
 
     </form>
+    <script src="/javascript/newOperation.js"></script> 
+
 </body>
 </html>

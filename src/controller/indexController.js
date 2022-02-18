@@ -18,17 +18,35 @@ else {
 let indexController = {
     
     index: (req,res) => {
-        res.render('home')
+        let userToLog
+        if(req.session.userLogged){
+            req.session.userLogged = userToLog
+
+        }
+        
+        res.render('home' , {userToLog})
     },
+
     operationForm: (req,res) => {
-        res.render('form')
+        res.render('operationForm')
     },
+
+    operationFormPost: (req,res) => {
+        let userToLog
+        userToLog = req.session.userLogged
+
+        res.render('home' , {userToLog})
+   
+    },
+
     allOperations: (req,res) => {
         res.render('allOperations')
     },
+
     login: (req,res) => {
         res.render('login')
     },
+
     loginPost: (req,res) => {
         let errorMessage= 'Las credenciales son inválidas';
         let userToLog
@@ -45,6 +63,7 @@ let indexController = {
         if(userToLog){
             let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
             if(passwordOk){
+                req.session.userLogged = userToLog
             res.render('home' , {userToLog})
             } else {
                 res.render('login' , {errorMessage})
@@ -52,14 +71,13 @@ let indexController = {
         } else {
             res.render('login' , {errorMessage})
         }
-         
-
     },
 
 
     register: (req,res) => {
         res.render('register')
     },
+
     registerPost: (req,res) => {
      
        for(let i=0; i<userList.length; i++){
