@@ -29,6 +29,8 @@ window.addEventListener("load" , function(){
         }
         localStorage.setItem("setNewOperation" , JSON.stringify(newOperation));
 
+
+
         if(localStorage.getItem('operationsList') != null){
         let parseOperationsList = JSON.parse(localStorage.getItem('operationsList'));
         let parseNewOperation = JSON.parse(localStorage.getItem('setNewOperation'))
@@ -36,7 +38,6 @@ window.addEventListener("load" , function(){
         parseOperationsList.push(parseNewOperation);
 
         let stringOperationList = JSON.stringify(parseOperationsList)
-      //  alert(stringOperationList)
 
         localStorage.setItem('operationsList' , stringOperationList );
 
