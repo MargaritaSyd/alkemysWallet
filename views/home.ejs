@@ -13,10 +13,30 @@
     <% } %>
     <h2> Este es tu balance actual</h2>
 
-    <h2> Tus últimos movimiento</h2>
+    <h4 id="actualBalance"> </h4>
+    
+    <button id="lastRegister"> Últimos movimientos</button>
+    <button id="incomeButton"> Ingresos </button> 
+    <button id="'outcomeButton"> Egresos </button>
+    
+    <h2> Tus últimos movimientos</h2>
+   
+    <div id="tableIncomeOutcome">
+      <table id="tableOperations">
+   
+      </table>
 
-    <a href="/new_operation"> Registrá una operación</a>
+    </div>
+  
+    <br>
+   <div>
+    <a href="/new_operation"> <button>Registrá una operación</button></a>
+    </div>
+    <div>
+    <a href="/all_operations"><button> Registro de operaciones </button></a>
+    </div>
+    <script src="/javascript/allOpTable.js"></script> 
 
-    <a href="/all_operations"> Registro de operaciones </a>
 </body>
+
 </html>
