@@ -2,39 +2,8 @@
 window.addEventListener('load' , function(){
 
     let tableOperations = document.getElementById('tableOperations')
-    let outcomeButton = document.getElementById("outcomeButton")
-    let incomeButton = document.getElementById('incomeButton')
-
-//function to add operations table
-/*
-    function addOperationTable(list){
-        
-        for(let i=0; i<list.length; i++){
-            
-            let rowPosition = i+1
-            var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
-
-            var dateI = rowI.insertCell(0)
-            var conceptI = rowI.insertCell(1)
-            var amountI = rowI.insertCell(2)
-            var typeI = rowI.insertCell(3)
-            var editI = rowI.insertCell(4)
-            var deleteI = rowI.insertCell(5)
-        
-            dateI.innerHTML = list[i].newdate
-            conceptI.innerHTML = list[i].newConcept
-            amountI.innerHTML = list[i].newAmount
-            typeI.innerHTML = list[i].newtype
-            editI.innerHTML = 'edit'
-            deleteI.innerHTML = 'delete'
-        }
-
-    }
-    */
-//
     //last 10 operations:
 
- //   lastRegister.addEventListener('click' , function(){
     var row0 = tableOperations.insertRow(0); //Initail Cell
    
     var cell1 = row0.insertCell(0); //Date
@@ -90,8 +59,7 @@ window.addEventListener('load' , function(){
                outcomeOperations.push(parseOperationsList[i])
            }
        }
-   // }
-
+ 
    
     
 })
