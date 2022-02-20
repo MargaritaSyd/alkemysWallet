@@ -100,6 +100,7 @@ let indexController = {
       
     },
 
+
     incomes: (req,res) => {
        
 
@@ -110,9 +111,10 @@ let indexController = {
     outcomes: (req,res) => {
        
 
-        res.render('outcomes' )
+        res.render('outcomes')
 
-    }
+    },
+    
 }
 
 module.exports = indexController;
