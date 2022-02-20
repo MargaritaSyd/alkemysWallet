@@ -71,18 +71,7 @@ window.addEventListener('load' , function(){
 
             localStorage.setItem("operationsList" , JSON.stringify(editingList))
 
-          //  alert(JSON.stringify(editedOp))
-
-        
-//            parseOperationsList.unshift(editedOp);
- 
-
-  //         alert(JSON.stringify(parseOperationsList))
-   
-      //      editingList.unshift(editedOp)
-
-    //        alert(JSON.stringify(editingList))
-           window.location.reload();
+            window.location.reload();
 
        
     
