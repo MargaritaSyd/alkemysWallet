@@ -57,34 +57,11 @@ window.addEventListener('load' , function(){
         alert("no tienes operaciones");
     } else {
         addOperationTable(parseOperationsList)
-/*
-       for(let i=0; i<parseOperationsList.length; i++){
-            
-            let rowPosition = i+1
-            var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
 
-            var dateI = rowI.insertCell(0)
-            var conceptI = rowI.insertCell(1)
-            var amountI = rowI.insertCell(2)
-            var typeI = rowI.insertCell(3)
-            var editI = rowI.insertCell(4)
-            var deleteI = rowI.insertCell(5)
-        
-            dateI.innerHTML = parseOperationsList[i].newdate
-            conceptI.innerHTML = parseOperationsList[i].newConcept
-            amountI.innerHTML = parseOperationsList[i].newAmount
-            typeI.innerHTML = parseOperationsList[i].newtype
-            editI.innerHTML = 'edit'
-            deleteI.innerHTML = 'delete'
-        }
-    */
     }
 })
 
-          
-    // if(parseOperationsList == null){
-    //     alert("no tienes operaciones");
-    // } else {
+// Arrays ingresos - egresos          
         let incomeOperations = []
         let outcomeOperations = []
        for(let i=0; i<parseOperationsList.length; i++){

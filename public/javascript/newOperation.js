@@ -15,6 +15,9 @@ window.addEventListener("load" , function(){
 
         if(oneIncome.checked == true){
             typeOperation = oneIncome.value
+            
+            
+
         } else {
             typeOperation = oneOutcome.value
         }
