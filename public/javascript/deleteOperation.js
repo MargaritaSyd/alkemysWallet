@@ -9,6 +9,7 @@ function deleteOperation(opId){
 
 window.addEventListener("load" , function(){
 
+    
     let deleteButton = document.querySelectorAll('.deleteButton')
 
     for(let i=0; i<deleteButton.length; i++){
@@ -22,10 +23,9 @@ window.addEventListener("load" , function(){
                 localStorage.setItem("operationsList" , JSON.stringify(newList))
                 window.location.reload();
             } else {
-                alert('not')
+                alert('Ok!')
             }
-           // alert(e.target.parentElement.id)
-
+   
     })
 }
 
