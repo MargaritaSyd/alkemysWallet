@@ -50,8 +50,9 @@ if(outcomeOperations == null){
         dateI.innerHTML = outcomeOperations[i].newdate
         conceptI.innerHTML = outcomeOperations[i].newConcept
         amountI.innerHTML = outcomeOperations[i].newAmount
-        editI.innerHTML = 'edit'
-        deleteI.innerHTML = 'delete'
+        editI.innerHTML = '<button> EDITAR </button>'
+        deleteI.innerHTML = '<button> ELIMINAR </button>'
+
     }
 }
 
