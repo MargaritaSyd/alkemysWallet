@@ -29,7 +29,6 @@ window.addEventListener('load' , function(){
     var cell3 = row0.insertCell(2); //Amount
     var cell4 = row0.insertCell(3); //Edit
     var cell5 = row0.insertCell(4);  //Delete
-    var cell6 = row0.insertCell(5); //id
 
 
 
@@ -38,8 +37,7 @@ window.addEventListener('load' , function(){
     cell3.innerHTML = 'MONTO'; //Cell Amount
     cell4.innerHTML = "";  //Cell edit
     cell5.innerHTML = ''; //cellDelete
-    cell5.innerHTML = ''
-
+   
     if(incomeOperations == null){
         alert("no tienes ingresos registrados");
     } else {
@@ -54,8 +52,7 @@ window.addEventListener('load' , function(){
             var amountI = rowI.insertCell(2)
             var editI = rowI.insertCell(3)
             var deleteI = rowI.insertCell(4)
-            var idI = rowI.insertCell(5)
-
+       
             dateI.innerHTML = incomeOperations[i].newdate
             conceptI.innerHTML = incomeOperations[i].newConcept
             amountI.innerHTML = incomeOperations[i].newAmount
@@ -63,8 +60,8 @@ window.addEventListener('load' , function(){
             editI.className = "editButton"
             editI.id = incomeOperations[i].idOperation
             deleteI.innerHTML = '<button> ELIMINAR </button>'
-            idI.innerHTML = incomeOperations[i].idOperation
-            idI.style = "display: none"
+            deleteI.id = incomeOperations[i].idOperation
+            deleteI.className = "deleteButton"
         }
     }
 

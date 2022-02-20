@@ -48,13 +48,31 @@ window.addEventListener('load' , function(){
             editDate: editDate.value,
             notEditType: typeOp.value
         }
-        let editedOp = parseOperationsList.filter(operation => operation.idOperation != editOperation.editId);
-        editedOp.unshift(editOperation);
 
-        localStorage.setItem('operationsList' , JSON.stringify(editedOp))
+        for(let i = 0; i<parseOperationsList.length; i++){
+            let editedOpId = parseOperationsList[i].idOperation
+            if(editOperation.editId == editedOpId){
+                let editedOpArray = parseOperationsList.filter(operation => operation.idOperation != editOperation.editId)
+                alert(JSON.stringify(editedOpArray))
+       
+            }
+    
+        }
 
 
+       // let editedOp = parseOperationsList.filter(operation => operation.idOperation != editOperation.editId);
+        //editedOp.unshift(editOperation);
 
+     //   localStorage.setItem('operationsList' , JSON.stringify(editedOp))
+
+
+/*
+                  let idName = parseCartList[i].productName;
+                    let removeItem = parseCartList.filter((item) => item.productName != idName);
+                     localStorage.setItem("cartList" , JSON.stringify(removeItem))
+                     window.location.reload();
+
+*/
 
 
       //        alert(JSON.stringify(editedOp))
