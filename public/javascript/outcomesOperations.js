@@ -23,16 +23,14 @@ var row0 = tableOutcomesOperations.insertRow(0); //Initail Cell
 var cell1 = row0.insertCell(0); //Date
 var cell2 = row0.insertCell(1); //COncept
 var cell3 = row0.insertCell(2); //Amount
-var cell4 = row0.insertCell(3); //Type income/outcome
-var cell5 = row0.insertCell(4); //Edit
-var cell6 = row0.insertCell(5);  //Delete
+var cell4 = row0.insertCell(3); //Edit
+var cell5 = row0.insertCell(4);  //Delete
 
 cell1.innerHTML = "FECHA";   //Cell Date
 cell2.innerHTML = 'CONCEPTO'; //Cell Concept
 cell3.innerHTML = 'MONTO'; //Cell Amount
-cell4.innerHTML = 'TIPO';  //Cell Type
-cell5.innerHTML = "";  //Cell edit
-cell6.innerHTML = ''; //cellDelete
+cell4.innerHTML = "";  //Cell edit
+cell5.innerHTML = ''; //cellDelete
 
 
 if(outcomeOperations == null){
@@ -46,14 +44,12 @@ if(outcomeOperations == null){
         var dateI = rowI.insertCell(0)
         var conceptI = rowI.insertCell(1)
         var amountI = rowI.insertCell(2)
-        var typeI = rowI.insertCell(3)
-        var editI = rowI.insertCell(4)
-        var deleteI = rowI.insertCell(5)
+        var editI = rowI.insertCell(3)
+        var deleteI = rowI.insertCell(4)
     
         dateI.innerHTML = outcomeOperations[i].newdate
         conceptI.innerHTML = outcomeOperations[i].newConcept
         amountI.innerHTML = outcomeOperations[i].newAmount
-        typeI.innerHTML = outcomeOperations[i].newtype
         editI.innerHTML = 'edit'
         deleteI.innerHTML = 'delete'
     }
