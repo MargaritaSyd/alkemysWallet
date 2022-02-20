@@ -39,9 +39,9 @@ let indexController = {
    
     },
 
-    allOperations: (req,res) => {
-        res.render('allOperations')
-    },
+    // allOperations: (req,res) => {
+    //     res.render('allOperations')
+    // },
 
     login: (req,res) => {
         res.render('login')
@@ -99,6 +99,20 @@ let indexController = {
         res.redirect('/')  
       
     },
+
+    incomes: (req,res) => {
+       
+
+        res.render('incomes')
+
+    },
+
+    outcomes: (req,res) => {
+       
+
+        res.render('outcomes' )
+
+    }
 }
 
 module.exports = indexController;

@@ -12,7 +12,7 @@ const notLogged = require('../middlewares/notLogged')
 
 //const cpUpload = fileUploadProduct.fields([{ name: "image_product", maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
 
-const { index } = require('../controller/indexController');
+//const { index } = require('../controller/indexController');
 
 router.get('/' , notLogged , indexController.index);
 
@@ -20,7 +20,7 @@ router.get('/new_operation' , notLogged , indexController.operationForm);
 
 router.post('/new_operation' , indexController.operationFormPost);
 
-router.get('/all_operations' , notLogged , indexController.allOperations);
+//router.get('/all_operations' , notLogged , indexController.allOperations);
 
 router.get('/login' , indexController.login);
 
@@ -29,5 +29,9 @@ router.post('/login' , indexController.loginPost)
 router.get('/register', indexController.register);
 
 router.post('/register' , indexController.registerPost);
+
+router.get('/incomes' , indexController.incomes);
+
+router.get('/outcomes' , indexController.outcomes);
 
 module.exports = router;
