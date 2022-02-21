@@ -5,6 +5,8 @@ window.addEventListener("load" , function(){
     //alert("ok")
     //localStorage.clear()
     let userDataId = document.getElementById('userDataId');
+    let editUserDataId = document.getElementById('editUserDataId');
+  
    // let userSalut = document.getElementById('userSalut');
 
 //alert('ok')
@@ -15,6 +17,7 @@ window.addEventListener("load" , function(){
 
      userDataId.value = parseUser.id;
 
+     editUserDataId.value = parseUser.id;
 
     } 
     

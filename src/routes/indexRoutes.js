@@ -20,6 +20,10 @@ router.get('/new_operation' , indexController.operationForm);
 
 router.post('/new_operation' , indexController.operationFormPost);
 
+router.get('/edit_operation' , indexController.editOperationForm);
+
+router.post('/edit_operation' , indexController.editOperationFormPost);
+
 //router.get('/all_operations' , notLogged , indexController.allOperations);
 
 router.get('/login' , indexController.login);

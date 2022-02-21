@@ -7,7 +7,17 @@ window.addEventListener('load' , function(){
     
     let tableOperations = document.getElementById('tableOperations')
     //last 10 operations:
-
+/*
+    function editingButton(id){
+           let id = document.getElementById(id);
+            id.addEventListener("click" , function(){
+                alert('ok')
+            })
+           // e.preventDefault()
+          //  alert('ok')
+    
+    }
+*/
     var row0 = tableOperations.insertRow(0); //Initail Cell
    
     var cell1 = row0.insertCell(0); //Date
@@ -37,7 +47,6 @@ fetch("http://localhost:4000/api_operations")
     }
     for(let i=0; i<operationsArray.length; i++){
         let rowPosition = i + 1
-
         var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
 
         var dateI = rowI.insertCell(0)
@@ -51,14 +60,17 @@ fetch("http://localhost:4000/api_operations")
         conceptI.innerHTML = operationsArray[i].concept
         amountI.innerHTML = operationsArray[i].amount
         typeI.innerHTML = operationsArray[i].type
-        editI.innerHTML = 'edit'
+        editI.innerHTML = '<button>edit</button>'
+        editI.className = "editButton"
+        editI.id = operationsArray[i].id
         deleteI.innerHTML = 'delete'
 
+     //   editingButton(operationsArray[i].id)
     }
 })    
           
 
-
+/*
 
 // Arrays ingresos - egresos          
         let incomeOperations = []
@@ -70,6 +82,7 @@ fetch("http://localhost:4000/api_operations")
                outcomeOperations.push(parseOperationsList[i])
            }
        }
+       */
  
    
     

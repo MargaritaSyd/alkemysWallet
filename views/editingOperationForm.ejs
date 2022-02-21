@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <% if(locals.errorMessage != undefined){%>
+    <div class="cajaMensajeError">
+        <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+    </div>
+<%}%>
+
+   <h2> Editá una operación: </h1>
+    <form action="/edit_operation" method="POST">
+        <div>
+            <label> En concepto de: </label>
+            <input id="editConcept" type="text" name="concept">
+        </div>
+        <div>
+            <label> Monto: </label>
+            <input id="editAmount" type="number" name="amount">
+        </div>
+        <div>
+          <label>Categoría</label>
+          <select name="editCategory">                          
+              <option value="" disabled selected>Seleccione una categoría</option>
+              <% for(let i=0; i<category.length; i++){ %>
+                    <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
+              <%}%> 
+          </select>
+        </div>
+        <div>
+            <label> Fecha </label>
+            <input id="editDate" type="date" name="date">
+        </div>
+        <div>
+            <input id="editIncome" type="radio" name="incomeOutcome" value="income">
+            <label>
+              Ingreso
+            </label>
+        </div>
+        <div>
+            <input id="editOutcome" type="radio" name="incomeOutcome" value="outcome" checked>
+            <label>
+              Egreso
+            </label>
+        </div>
+        <div>
+            <button id="editOperationSubmit" type="submit">Editar operación</button>
+            <button id="deleteOperationSubmit" type="submit">Editar operación</button>
+        </div>
+
+
+
+    </form>
+    <script src="/javascript/userData.js"></script>
+</body>
+</html>
