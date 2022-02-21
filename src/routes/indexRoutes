@@ -17,7 +17,7 @@ const notLogged = require('../middlewares/notLogged')
 
 router.get('/' , notLogged , indexController.index);
 
-router.get('/new_operation' , notLogged , indexController.operationForm);
+router.get('/new_operation' , indexController.operationForm);
 
 router.post('/new_operation' , indexController.operationFormPost);
 

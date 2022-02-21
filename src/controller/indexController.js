@@ -3,18 +3,18 @@ let fs = require ('fs');
 let path = require ('path');
 const bcryptjs = require('bcryptjs');
 
-let usersPath = path.join(__dirname,"../db/user.json");
-let userData = fs.readFileSync (usersPath, 'utf-8');
+//let usersPath = path.join(__dirname,"../db/user.json");
+//let userData = fs.readFileSync (usersPath, 'utf-8');
 let db = require('../database/models');
 let Op = db.sequelize.Op;
 
-let userList ;
-if (userData == "") {
-    userList = [];
-} 
-else { 
-    userList = JSON.parse(userData);
-};
+// let userList ;
+// if (userData == "") {
+//     userList = [];
+// } 
+// else { 
+//     userList = JSON.parse(userData);
+// };
 
 
 let indexController = {
@@ -31,14 +31,12 @@ let indexController = {
 
     operationForm: (req,res) => {
 
-        let userToLog
-        req.session.user = userToLog
 
         db.category.findAll()
         
         .then(function(category){
-            console.log(userToLog)         
-            res.render('operationForm' , {category , userToLog})
+          //  console.log(userToLog)         
+            res.render('operationForm' , {category})
         })
         
     },

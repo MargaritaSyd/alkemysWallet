@@ -13,14 +13,9 @@
     </div>
 <%}%>
 
-<% if(userToLog){ %>
-  <h1> Bienvenido <%= userToLog.name %> </h1>
-  <% } else { %>
-      <h1> Bienvenido usuario </h1>
-  <% } %>
-
    <h2> Registrá una operación: </h1>
     <form action="/new_operation" method="POST">
+        <input id="userDataId">  
         <div>
             <label> En concepto de: </label>
             <input id="oneConcept" type="text" name="concept">
@@ -62,6 +57,6 @@
 
     </form>
     <script src="/javascript/newOperation.js"></script> 
-
+    <script src="/javascript/userData.js"></script>
 </body>
 </html>

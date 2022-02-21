@@ -8,6 +8,8 @@
 <body>
     <% if(userToLog){ %>
     <h1> Bienvenido <%= userToLog.name %> </h1>
+    <h2 id="nameUser" style="display: none;" > <%= userToLog.name%></h2>
+    <h2 id="idUser" style="display: none;" > <%= userToLog.id%></h2>
     <% } else { %>
         <h1> Bienvenido usuario </h1>
     <% } %>
@@ -35,7 +37,7 @@
     <script src="/javascript/allOpTable.js"></script> 
     <script src="/javascript/balance.js"></script>
     <script src="/javascript/outIncomesOperations.js"></script> 
-
+    <script src="/javascript/userLogged.js"></script> 
 
 </body>
 

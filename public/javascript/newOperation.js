@@ -59,41 +59,4 @@ window.addEventListener("load" , function(){
 
 
 
-//Store one register operation in operationsList storage
-
-       // localStorage.clear()
-        // alert("ok")
-
-/*
-        if( localStorage.getItem('operationsList') == null){
-            let operationsList = []
-            if(localStorage.getItem('setNewOperation') != null) {
-                let parseNewOperation = JSON.parse(localStorage.getItem('setNewOperation'));
-                localStorage.removeItem('setNewOperation');
-                operationsList.push(parseNewOperation);
-
-                localStorage.setItem('operationsList' , JSON.stringify(operationsList))
-       //     } else {
-         //       return
-            }
-        } else {
-    
-        if(localStorage.getItem('setNewOperation') != null) {
-
-        let parseNewOperation = JSON.parse(localStorage.getItem('setNewOperation'));
-        let parseOperationsList = JSON.parse(localStorage.getItem('operationsList'));
-
-        localStorage.removeItem('setNewOperation');
-
-        parseOperationsList.push(parseNewOperation);
-
-        localStorage.setItem('operationsList' , JSON.stringify(parseOperationsList))
-
-   //     } else {
-     //       return
-        }
-    }
-
-    */
-
 })
