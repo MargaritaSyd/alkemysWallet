@@ -1,5 +1,4 @@
 const express = require('express');
-const { route } = require('express/lib/application');
 const path = require ('path');
 const router = express.Router();
 const indexController = require('../controller/indexController');
@@ -15,7 +14,7 @@ const notLogged = require('../middlewares/notLogged')
 
 //const { index } = require('../controller/indexController');
 
-router.get('/' , notLogged , indexController.index);
+router.get('/' , indexController.index);
 
 router.get('/new_operation' , indexController.operationForm);
 
@@ -36,6 +35,6 @@ router.get('/incomes' , indexController.incomes);
 router.get('/outcomes' , indexController.outcomes);
 
 //router.get('/outcomes_incomes' , indexController.outIncomes);
-
+router.get('/api_operations' , indexController.api_users_operations)
 
 module.exports = router;

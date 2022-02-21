@@ -1,10 +1,23 @@
+//User id and name in local storage
+
 
 window.addEventListener("load" , function(){
-    
-//let userDataId = document.getElementById('userDataId').value
+    //localStorage.clear()
+    let userDataId = document.getElementById('userDataId');
+    let userSalut = document.getElementById('userSalut').innerText
 
-    if(localStorage.getItem('userLogged') != null){
-        let parseUser = JSON.parse(localStorage.getItem('userLogged'));
-        alert(parseUser)   
-    }
+//alert('ok')
+    if(localStorage.getItem('userLogged')){
+     //   this.alert('ok')
+     let user = localStorage.getItem('userLogged')
+     let parseUser = JSON.parse(user)
+
+     userDataId.value = parseUser.id
+     userSalut =  'ok'
+
+    } 
+    
+   
+
+
 })

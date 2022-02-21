@@ -6,6 +6,8 @@ const bcryptjs = require('bcryptjs');
 //let usersPath = path.join(__dirname,"../db/user.json");
 //let userData = fs.readFileSync (usersPath, 'utf-8');
 let db = require('../database/models');
+const operations = require('../database/models/operations');
+const category = require('../database/models/category');
 let Op = db.sequelize.Op;
 
 // let userList ;
@@ -44,11 +46,7 @@ let indexController = {
 
     operationFormPost: (req,res) => {
         //let userToLog
-        if(req.session.user){
-            req.session.user = userToLog
-
-        }
-
+       
         //db.category.findAll()
       //  db.users.findAll()
       //  .then(function(){
@@ -60,15 +58,15 @@ let indexController = {
                 type: req.body.incomeOutcome,
                 date: req.body.date,
                 id_category: req.body.category,
-                id_users: 1
+                id_users: req.body.id_user,
             })
      //   })
       
         .then(function(){
-            res.render('home' , {userToLog})           
+            res.render('home')           
         })
         .catch(function(e){
-            res.render('operationForm' , {errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
+            res.render('home' , { errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
         })
    
     },
@@ -88,8 +86,9 @@ let indexController = {
         .then(function(userToLog){
             let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
                    if(passwordOk){ 
-                        req.session.user= userToLog;   
-                        res.render('home' , {userToLog})
+                        //req.session.user= userToLog;   
+                        //res.render('home' , {userToLog})
+                        res.render('home')
 
                    } else { 
                         res.render('login' , {errorMessage})
@@ -146,6 +145,37 @@ let indexController = {
         res.render('outcomes')
 
     },
+
+    api_users_operations: (req,res) => {
+     db.operations.findAll()
+    // db.operations.findAll({include: [{association: "category"}] })
+     
+        .then(operation => {
+            let operationArray = [];
+            for(let i=0; i<operation.length; i++){
+                let oneOperation = {
+                    id: operation[i].id,
+                    concept: operation[i].concept,
+                    amount: operation[i].amount,
+                    type: operation[i].type,
+                    date: operation[i].date,
+                    id_category: operation[i].id_category,
+                    id_users: operation[i].id_users,
+               
+                }
+                operationArray.push(oneOperation) 
+            }
+            return res.status(200).json({
+                count: operationArray.length,
+                data: operationArray,
+                status: 200
+            })
+        })
+        .catch(function(e){
+            console.log(e)
+        }) 
+    
+       },
     
 }
 

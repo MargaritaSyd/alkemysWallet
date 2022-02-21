@@ -6,13 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <% if(userToLog){ %>
-    <h1> Bienvenido <%= userToLog.name %> </h1>
-    <h2 id="nameUser" style="display: none;" > <%= userToLog.name%></h2>
-    <h2 id="idUser" style="display: none;" > <%= userToLog.id%></h2>
-    <% } else { %>
-        <h1> Bienvenido usuario </h1>
-    <% } %>
+   
+    <h1 id="userSalut"> </h1>
     <h2 id="titleBalance"> Este es tu balance actual</h2>
 
     <h4 id="currentBalance"> </h4>
@@ -38,6 +33,7 @@
     <script src="/javascript/balance.js"></script>
     <script src="/javascript/outIncomesOperations.js"></script> 
     <script src="/javascript/userLogged.js"></script> 
+    <script src="/javascript/userData.js"></script> 
 
 </body>
 
