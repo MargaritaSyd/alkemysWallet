@@ -8,7 +8,7 @@ module.exports = function(sequelize, dataTypes)
              autoIncrement: true,
              allowNull: false
          },
-         name: {
+         category_name: {
             type: dataTypes.STRING,
             allowNull: false
         }, 

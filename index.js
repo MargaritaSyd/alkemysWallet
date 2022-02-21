@@ -1,13 +1,15 @@
 const express = require ('express');
+
 const app = express();
+const session = require('express-session');
+
 const path = require ('path');
 const indexRoutes = require('./src/routes/indexRoutes');
-const session = require('express-session');
 
 
 app.use(session({
 	secret: "It's a secret",
-	resave: false,
+	resave: true,
 	saveUninitialized: false,
 }));
 

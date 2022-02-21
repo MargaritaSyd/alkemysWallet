@@ -21,8 +21,8 @@ let indexController = {
     
     index: (req,res) => {
         let userToLog
-        if(req.session.userLogged){
-            req.session.userLogged = userToLog
+        if(req.session.user){
+            req.session.user = userToLog
 
         }
         
@@ -30,20 +30,50 @@ let indexController = {
     },
 
     operationForm: (req,res) => {
-        res.render('operationForm')
+
+        let userToLog
+        req.session.user = userToLog
+
+        db.category.findAll()
+        
+        .then(function(category){
+            console.log(userToLog)         
+            res.render('operationForm' , {category , userToLog})
+        })
+        
     },
+
 
     operationFormPost: (req,res) => {
-        let userToLog
-        userToLog = req.session.userLogged
+        //let userToLog
+        if(req.session.user){
+            req.session.user = userToLog
 
-        res.render('home' , {userToLog})
+        }
+
+        //db.category.findAll()
+      //  db.users.findAll()
+      //  .then(function(){
+
+      
+            db.operations.create({
+                concept: req.body.concept,
+                amount: req.body.amount,
+                type: req.body.incomeOutcome,
+                date: req.body.date,
+                id_category: req.body.category,
+                id_users: 1
+            })
+     //   })
+      
+        .then(function(){
+            res.render('home' , {userToLog})           
+        })
+        .catch(function(e){
+            res.render('operationForm' , {errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
+        })
    
     },
-
-    // allOperations: (req,res) => {
-    //     res.render('allOperations')
-    // },
 
     login: (req,res) => {
         res.render('login')
@@ -60,12 +90,13 @@ let indexController = {
         .then(function(userToLog){
             let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
                    if(passwordOk){ 
-                        req.session.userLogged= userToLog;   
+                        req.session.user= userToLog;   
                         res.render('home' , {userToLog})
 
                    } else { 
                         res.render('login' , {errorMessage})
-                   }})
+                   }
+                })
         .catch(function(e){
             return res.render('login' , {errorMessage})
         })

@@ -21,11 +21,16 @@ module.exports = function(sequelize, dataTypes)
             allowNull: false
         },
 
+        date: {
+            type: dataTypes.STRING,
+            allowNull: false
+        },
 
         id_category: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
+        
         id_users: {
             type: dataTypes.INTEGER,
             allowNull: false

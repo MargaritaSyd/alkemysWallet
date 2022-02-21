@@ -6,7 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-   <h1> Registrá una operación: </h1>
+
+  <% if(locals.errorMessage != undefined){%>
+    <div class="cajaMensajeError">
+        <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+    </div>
+<%}%>
+
+<% if(userToLog){ %>
+  <h1> Bienvenido <%= userToLog.name %> </h1>
+  <% } else { %>
+      <h1> Bienvenido usuario </h1>
+  <% } %>
+
+   <h2> Registrá una operación: </h1>
     <form action="/new_operation" method="POST">
         <div>
             <label> En concepto de: </label>
@@ -15,6 +28,15 @@
         <div>
             <label> Monto: </label>
             <input id="oneAmount" type="number" name="amount">
+        </div>
+        <div>
+          <label>Categoría</label>
+          <select name="category">                          
+              <option value="" disabled selected>Seleccione una categoría</option>
+              <% for(let i=0; i<category.length; i++){ %>
+                    <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
+              <%}%> 
+          </select>
         </div>
         <div>
             <label> Fecha </label>
