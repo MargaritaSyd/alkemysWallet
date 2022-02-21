@@ -1,26 +1,36 @@
 window.addEventListener('load' , function(){
 
- //   localStorage.clear()
-    let parseOperationsList = JSON.parse(localStorage.getItem('operationsList'))
 
-    
-// Array income - outcome          
-let incomeOperations = []
-let outcomeOperations = []
-for(let i=0; i<parseOperationsList.length; i++){
-   if(parseOperationsList[i].newtype == 'income'){
-    incomeOperations.push(parseOperationsList[i])
-   } else {
-       outcomeOperations.push(parseOperationsList[i])
-   }
-}
-// }
-let incomeAmount = [];
-let outcomeAmount = [];
+fetch("http://localhost:4000/api_operations")
+.then(function(r){
+    return r.json();
+})
+.then(function(data){
+    let operationsArray = []
+    for( operation of data.data){
+        if(operation.id_users == 1){
+            operationsArray.push(operation)
+        }
+    }
 
-// incomes Array
+    //incomes operation vs outcomes operations
+
+    let incomeOperations = []
+    let outcomeOperations = []
+
+    for(let i=0; i<operationsArray.length; i++){
+        if(operationsArray[i].type == 'income'){
+            incomeOperations.push(operationsArray[i])
+        } else {
+            outcomeOperations.push(operationsArray[i])
+        }
+    }
+
+    let incomeAmount = [];
+    let outcomeAmount = [];
+    // incomes Array
     for(let i=0; i<incomeOperations.length; i++){
-        let positiveNum = parseInt(incomeOperations[i].newAmount)
+        let positiveNum = parseInt(incomeOperations[i].amount)
 
         incomeAmount.push(positiveNum);
     }
@@ -33,7 +43,7 @@ let outcomeAmount = [];
 // Outcomes Array   
     for(let i=0; i<outcomeOperations.length; i++){
 
-        let num  = parseInt(outcomeOperations[i].newAmount)
+        let num  = parseInt(outcomeOperations[i].amount)
         let negativeNum = num * -1
 
         outcomeAmount.push(negativeNum);
@@ -54,4 +64,6 @@ let outcomeAmount = [];
 
     currentBalanceId.innerHTML = '$' + currentBalance
 
+
+})
 })
