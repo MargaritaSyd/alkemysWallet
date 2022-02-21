@@ -16,5 +16,11 @@
   "name": "pepi",
   "mail": "pepe@gmail.com",
   "password": "$2a$10$OFwOGhBjG4rSBxu6ByPNnOGafsV4GGN0x/fYH3KTk6Bg1yPwtLNdK"
+ },
+ {
+  "id": 4,
+  "name": "pepi",
+  "mail": "pepi@gmail.com",
+  "password": "$2a$10$391rEPHcBPLlM.GyHH/Tfufwi0FOj0oEVnVDB8PVnPk2zCTqGgDIS"
  }
 ]
