@@ -57,34 +57,19 @@ let indexController = {
                 mail: req.body.mail
             }
         })
-        .then(function(user){
-            console.log(user)
-        })
-        /*
-        let errorMessage= 'Las credenciales son inválidas';
-        let userToLog
-        let notUser = false
-        let userMail = req.body.mail
-        for(let i=0; i<userList.length; i++){
-           if(userList[i].mail == userMail){
-              userToLog = userList[i]
-           } else {
-               notUser = true
-           }
-           }
-
-        if(userToLog){
+        .then(function(userToLog){
             let passwordOk= bcryptjs.compareSync(req.body.password , userToLog.password)
-            if(passwordOk){
-                req.session.userLogged = userToLog
-            res.render('home' , {userToLog})
-            } else {
-                res.render('login' , {errorMessage})
-            }
-        } else {
-            res.render('login' , {errorMessage})
-        }\
-        */
+                   if(passwordOk){ 
+                        req.session.userLogged= userToLog;   
+                        res.render('home' , {userToLog})
+
+                   } else { 
+                        res.render('login' , {errorMessage})
+                   }})
+        .catch(function(e){
+            return res.render('login' , {errorMessage})
+        })
+
     },
 
 
@@ -93,27 +78,32 @@ let indexController = {
     },
 
     registerPost: (req,res) => {
-       for(let i=0; i<userList.length; i++){
-            if(req.body.mail == userList[i].mail){
-               return res.render('/register' , {mensajeError: [{msg:"Este mail es invalido"}]})
-            } }
+        db.users.findOne({
+            where: {
+                mail: req.body.mail
+            }
+        })
+        .then(function(newUser){
+            if(newUser){
+                return res.render('register' , {errorMessage: [{msg:"Este mail es invalido"}]})
+            } else {
+                db.users.create({
+                    name: req.body.name,
+                    mail: req.body.mail,
+                    password: bcryptjs.hashSync(req.body.password , 10),
+                })
+                
+                res.render('login')
+            
+            }
 
-        let newUser= {
-            id: userList.length+1,
-            name: req.body.name,
-            mail: req.body.mail,
-            password: bcryptjs.hashSync(req.body.password , 10)
-        };
-      
+        })
+        .catch(function(e){
+            res.render('register')
+        })
 
-        userList.push(newUser);
-        let userListupdated= JSON.stringify(userList, null, " ");
-        fs.writeFileSync(usersPath, userListupdated)
-        res.redirect('/')  
-      
     },
-
-
+        
     incomes: (req,res) => {
        
 

@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1> Registrate!</h1>
+
+    <% if(locals.errorMessage != undefined){%>
+        <div class="cajaMensajeError">
+            <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+        </div>
+    <%}%>
     <form action="/register" method="POST" >
         <div>
             <label> Nombre </label>
