@@ -6,6 +6,14 @@ window.addEventListener('load' , function(){
 
     
     let tableOperations = document.getElementById('tableOperations')
+
+    function addEditButton(item){
+        let button = document.createElement('button')
+        button.innerHTML = "EDIT"
+        button.id = item
+
+        return button
+    }
     //last 10 operations:
 /*
     function editingButton(id){
@@ -49,6 +57,7 @@ fetch("http://localhost:4000/api_operations")
         let rowPosition = i + 1
         var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
 
+        let editingId = parseInt(operationsArray[i].id)
         var dateI = rowI.insertCell(0)
         var conceptI = rowI.insertCell(1)
         var amountI = rowI.insertCell(2)
@@ -60,12 +69,34 @@ fetch("http://localhost:4000/api_operations")
         conceptI.innerHTML = operationsArray[i].concept
         amountI.innerHTML = operationsArray[i].amount
         typeI.innerHTML = operationsArray[i].type
-        editI.innerHTML = '<button>edit</button>'
-        editI.className = "editButton"
-        editI.id = operationsArray[i].id
+        editI.innerHTML = "<button>EDIT</button>"
+        editI.id = editingId
         deleteI.innerHTML = 'delete'
 
+        let editButton = document.getElementById(editingId)
+        editButton.addEventListener("click" , function(e){
+            let idOperation = e.target.parentElement.id
+            let conceptOp = operationsArray[i].concept
+          alert(conceptOp)
+            
+            // let editOperation = {
+              //  id: idOperation,
+                //concept: 
+
+            //     id: Math.random(),
+            //     newConcept: oneConcept.value,
+            //     newAmount: oneAmount.value,
+            //     newdate: oneDate.value,
+            //     newtype: typeOperation,
+            
+            // }
+            // localStorage.setItem("setNewOperation" , JSON.stringify(newOperation));
+    
+    
+            //alert('ok')
+        })
      //   editingButton(operationsArray[i].id)
+    // alert(editingId)
     }
 })    
           

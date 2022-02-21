@@ -3,6 +3,7 @@ window.addEventListener('load' , function(){
     let user = JSON.parse(localStorage.getItem('userLogged'))
     let user_id = user.id
 
+    
 
     fetch("http://localhost:4000/api_operations")
     .then(function(r){
