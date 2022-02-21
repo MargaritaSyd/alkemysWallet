@@ -2,7 +2,7 @@ module.exports = {
     "development": {
         "username": "root",
         "password": "37040374",
-        "database": "database_development",
+        "database": "alkemys_wallet",
         "host": "127.0.0.1",
         "dialect": "mysql"
       },

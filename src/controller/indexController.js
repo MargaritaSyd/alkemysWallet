@@ -5,6 +5,8 @@ const bcryptjs = require('bcryptjs');
 
 let usersPath = path.join(__dirname,"../db/user.json");
 let userData = fs.readFileSync (usersPath, 'utf-8');
+let db = require('../database/models');
+let Op = db.sequelize.Op;
 
 let userList ;
 if (userData == "") {
@@ -49,6 +51,17 @@ let indexController = {
 
     loginPost: (req,res) => {
         let errorMessage= 'Las credenciales son inválidas';
+
+        db.users.findOne( {
+            where: {
+                mail: req.body.mail
+            }
+        })
+        .then(function(user){
+            console.log(user)
+        })
+        /*
+        let errorMessage= 'Las credenciales son inválidas';
         let userToLog
         let notUser = false
         let userMail = req.body.mail
@@ -70,7 +83,8 @@ let indexController = {
             }
         } else {
             res.render('login' , {errorMessage})
-        }
+        }\
+        */
     },
 
 
@@ -79,7 +93,6 @@ let indexController = {
     },
 
     registerPost: (req,res) => {
-     
        for(let i=0; i<userList.length; i++){
             if(req.body.mail == userList[i].mail){
                return res.render('/register' , {mensajeError: [{msg:"Este mail es invalido"}]})
