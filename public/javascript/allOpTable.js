@@ -20,32 +20,39 @@ window.addEventListener('load' , function(){
     cell5.innerHTML = "";  //Cell edit
     cell6.innerHTML = ''; //cellDelete
 
-    let parseOperationsList = JSON.parse(localStorage.getItem('operationsList'))
-    
-    if(parseOperationsList == null){
-        alert("no tienes operaciones");
-    } else {
-        for(let i=0; i<parseOperationsList.length && i<10; i++){
-            
-            let rowPosition = i+1
-            var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
-
-            var dateI = rowI.insertCell(0)
-            var conceptI = rowI.insertCell(1)
-            var amountI = rowI.insertCell(2)
-            var typeI = rowI.insertCell(3)
-            var editI = rowI.insertCell(4)
-            var deleteI = rowI.insertCell(5)
-        
-            dateI.innerHTML = parseOperationsList[i].newdate
-            conceptI.innerHTML = parseOperationsList[i].newConcept
-            amountI.innerHTML = parseOperationsList[i].newAmount
-            typeI.innerHTML = parseOperationsList[i].newtype
-            editI.innerHTML = 'edit'
-            deleteI.innerHTML = 'delete'
+fetch("http://localhost:4000/api_operations")
+.then(function(r){
+    return r.json();
+})
+.then(function(data){
+    let operationsArray = []
+    for( operation of data.data){
+        if(operation.id_users == 1){
+            operationsArray.push(operation)
         }
+    }
+    for(let i=0; i<operationsArray.length; i++){
+        let rowPosition = i + 1
+
+        var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
+
+        var dateI = rowI.insertCell(0)
+        var conceptI = rowI.insertCell(1)
+        var amountI = rowI.insertCell(2)
+        var typeI = rowI.insertCell(3)
+        var editI = rowI.insertCell(4)
+        var deleteI = rowI.insertCell(5)
+    
+        dateI.innerHTML = operationsArray[i].date
+        conceptI.innerHTML = operationsArray[i].concept
+        amountI.innerHTML = operationsArray[i].amount
+        typeI.innerHTML = operationsArray[i].type
+        editI.innerHTML = 'edit'
+        deleteI.innerHTML = 'delete'
 
     }
+})    
+          
 
 
 
