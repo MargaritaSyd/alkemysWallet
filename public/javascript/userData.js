@@ -2,9 +2,10 @@
 
 
 window.addEventListener("load" , function(){
+    //alert("ok")
     //localStorage.clear()
     let userDataId = document.getElementById('userDataId');
-    let userSalut = document.getElementById('userSalut').innerText
+   // let userSalut = document.getElementById('userSalut');
 
 //alert('ok')
     if(localStorage.getItem('userLogged')){
@@ -12,8 +13,8 @@ window.addEventListener("load" , function(){
      let user = localStorage.getItem('userLogged')
      let parseUser = JSON.parse(user)
 
-     userDataId.value = parseUser.id
-     userSalut =  'ok'
+     userDataId.value = parseUser.id;
+
 
     } 
     

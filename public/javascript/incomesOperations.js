@@ -1,19 +1,28 @@
 window.addEventListener('load' , function(){
+    
+    let user = JSON.parse(localStorage.getItem('userLogged'))
+    let user_id = user.id
 
-    let tableOutcomesOperations = document.getElementById('tableOutcomesOperations');
 
-    let parseOperationsList = JSON.parse(localStorage.getItem('operationsList'));
-
+    fetch("http://localhost:4000/api_operations")
+    .then(function(r){
+        return r.json();
+    })
+    .then(function(data){
+        let operationsArray = []
+        for( operation of data.data){
+            if(operation.id_users == user_id){
+                operationsArray.push(operation)
     // incomes - outcomes operations arrays:
 
     let incomeOperations = []
     let outcomeOperations = []
     
-    for(let i = 0; i<parseOperationsList.length; i++){
-        if(parseOperationsList[i].newtype == 'income'){
-            incomeOperations.push(parseOperationsList[i])
+    for(let i=0; i<operationsArray.length; i++){
+        if(operationsArray[i].type == 'income'){
+            incomeOperations.push(operationsArray[i])
         } else {
-            outcomeOperations.push(parseOperationsList[i])
+            outcomeOperations.push(operationsArray[i])
         }
     }
 
@@ -29,7 +38,10 @@ window.addEventListener('load' , function(){
     var cell3 = row0.insertCell(2); //Amount
     var cell4 = row0.insertCell(3); //Edit
     var cell5 = row0.insertCell(4);  //Delete
-
+           }
+        }
+    
+ 
 
 
     cell1.innerHTML = "FECHA";   //Cell Date
@@ -53,17 +65,18 @@ window.addEventListener('load' , function(){
             var editI = rowI.insertCell(3)
             var deleteI = rowI.insertCell(4)
        
-            dateI.innerHTML = incomeOperations[i].newdate
-            conceptI.innerHTML = incomeOperations[i].newConcept
-            amountI.innerHTML = incomeOperations[i].newAmount
+            dateI.innerHTML = incomeOperations[i].date
+            conceptI.innerHTML = incomeOperations[i].concept
+            amountI.innerHTML = incomeOperations[i].amount
             editI.innerHTML = '<button> EDITAR </button>'
             editI.className = "editButton"
-            editI.id = incomeOperations[i].idOperation
+            editI.id = incomeOperations[i].id
             deleteI.innerHTML = '<button> ELIMINAR </button>'
-            deleteI.id = incomeOperations[i].idOperation
+            deleteI.id = incomeOperations[i].id
             deleteI.className = "deleteButton"
         }
     }
 
+})
 
 })

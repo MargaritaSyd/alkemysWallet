@@ -1,6 +1,10 @@
 
 window.addEventListener('load' , function(){
 
+    let user = JSON.parse(localStorage.getItem('userLogged'))
+    let user_id = user.id
+
+    
     let tableOperations = document.getElementById('tableOperations')
     //last 10 operations:
 
@@ -27,7 +31,7 @@ fetch("http://localhost:4000/api_operations")
 .then(function(data){
     let operationsArray = []
     for( operation of data.data){
-        if(operation.id_users == 1){
+        if(operation.id_users == user_id){
             operationsArray.push(operation)
         }
     }
