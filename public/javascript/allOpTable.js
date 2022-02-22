@@ -7,13 +7,6 @@ window.addEventListener('load' , function(){
     
     let tableOperations = document.getElementById('tableOperations')
 
-    function addEditButton(item){
-        let button = document.createElement('button')
-        button.innerHTML = "EDIT"
-        button.id = item
-
-        return button
-    }
     //last 10 operations:
 /*
     function editingButton(id){
@@ -58,6 +51,8 @@ fetch("http://localhost:4000/api_operations")
         var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
 
         let editingId = parseInt(operationsArray[i].id)
+        let deleteId ="delete" + parseInt(operationsArray[i].id)
+        
         var dateI = rowI.insertCell(0)
         var conceptI = rowI.insertCell(1)
         var amountI = rowI.insertCell(2)
@@ -71,30 +66,54 @@ fetch("http://localhost:4000/api_operations")
         typeI.innerHTML = operationsArray[i].type
         editI.innerHTML = "<button>EDIT</button>"
         editI.id = editingId
-        deleteI.innerHTML = 'delete'
+        deleteI.id = deleteId
+        deleteI.innerHTML = "<button>DELETE</button>"
+        
+        //deleteI.innerHTML = 'delete'
 
 // addEvent to edit button
         let editButton = document.getElementById(editingId)
         editButton.addEventListener("click" , function(e){
 
                 let idOperation = e.target.parentElement.id
-                let conceptEdit = operationsArray[i].concept
-                let amountEdit = operationsArray[i].amount
-                let typeEdit = operationsArray[i].type
+                // let conceptEdit = operationsArray[i].concept
+                // let amountEdit = operationsArray[i].amount
+                // let typeEdit = operationsArray[i].type
          
-                let editOperation = new Object();
+                // let editOperation = new Object();
 
-                    editOperation.id = idOperation;
-                    editOperation.concept = conceptEdit,
-                    editOperation.amount = amountEdit,
-                    editOperation.type = typeEdit
+                //     editOperation.id = idOperation;
+                //     editOperation.concept = conceptEdit,
+                //     editOperation.amount = amountEdit,
+                //     editOperation.type = typeEdit
 
     
-                localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
+                // localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
                 window.location.assign("http://localhost:4000/edit_operation/" + idOperation)
 
     
         })
+// addEvent to edit button
+            let deleteButton = document.getElementById(deleteId)
+            deleteButton.addEventListener("click" , function(e){
+
+                    let idOperation = editingId
+                    // let conceptEdit = operationsArray[i].concept
+                    // let amountEdit = operationsArray[i].amount
+                    // let typeEdit = operationsArray[i].type
+            
+                    // let editOperation = new Object();
+
+                    //     editOperation.id = idOperation;
+                    //     editOperation.concept = conceptEdit,
+                    //     editOperation.amount = amountEdit,
+                    //     editOperation.type = typeEdit
+
+
+                    // localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
+                    window.location.assign("http://localhost:4000/delete_operation/" + idOperation)
+            })
+
     }
 })    
           

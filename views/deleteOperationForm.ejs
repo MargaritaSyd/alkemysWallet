@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <% if(locals.errorMessage != undefined){%>
+    <div class="cajaMensajeError">
+        <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+    </div>
+<%}%>
+
+   <h2> Eliminá una operación: </h1>
+    <form id="editingForm" action="/delete_operation/<%=operation.id%>" method="POST">
+        <div>
+            <label> En concepto de: </label>
+            <input id="editConcept" type="text" name="concept" value="<%=operation.concept%>" readonly>
+        </div>
+        <div>
+            <label> Monto: </label>
+            <input id="editAmount" type="number" name="amount" value="<%=operation.amount%>" readonly>
+        </div>
+        <div>
+            <label> Fecha </label>
+            <input id="editDate" type="date" name="date" value="<%=operation.date%>" readonly>
+        </div>
+        <div>
+            <button type="submit">Eliminar operación</button>
+        </div>
+
+
+
+    </form>
+    <script src="/javascript/userData.js"></script>
+
+    <script src="/javascript/editOperationAction.js"></script>
+
+</body>
+</html>

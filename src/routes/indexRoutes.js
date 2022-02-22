@@ -24,7 +24,9 @@ router.get('/edit_operation/:id' , indexController.editOperationForm);
 
 router.post('/edit_operation/:id' , indexController.editOperationFormPost);
 
-//router.get('/all_operations' , notLogged , indexController.allOperations);
+router.get('/delete_operation/:id' , indexController.deleteOperationForm);
+
+router.post('/delete_operation/:id' , indexController.deleteOperationFormPost);
 
 router.get('/login' , indexController.login);
 

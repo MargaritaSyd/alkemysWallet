@@ -214,6 +214,37 @@ let indexController = {
    
     },
     
+    deleteOperationForm: (req,res) => {
+
+        let operation = db.operations.findByPk(req.params.id)
+        let category = db.category.findAll()
+        Promise.all([operation , category])
+        .then(function([operation , category]){
+          //  console.log(userToLog)         
+            res.render('deleteOperationForm' , {operation , category})
+        })
+        
+    },
+
+
+    deleteOperationFormPost: (req,res) => {
+       // db.operations.findByPK(req.params.id)
+        db.operations.destroy(
+                     {
+                        where: {id: req.params.id}
+                    }
+                )
+            
+        
+        .then(function(){
+            res.render('home')           
+        })
+        .catch(function(e){
+            res.render('home' , { errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
+        })
+   
+    },
+    
 
 
     
