@@ -75,25 +75,26 @@ fetch("http://localhost:4000/api_operations")
 
         let editButton = document.getElementById(editingId)
         editButton.addEventListener("click" , function(e){
-            let idOperation = e.target.parentElement.id
-            let conceptOp = operationsArray[i].concept
-          alert(conceptOp)
-            
-            // let editOperation = {
-              //  id: idOperation,
-                //concept: 
 
-            //     id: Math.random(),
-            //     newConcept: oneConcept.value,
-            //     newAmount: oneAmount.value,
-            //     newdate: oneDate.value,
-            //     newtype: typeOperation,
             
-            // }
-            // localStorage.setItem("setNewOperation" , JSON.stringify(newOperation));
+                let idOperation = e.target.parentElement.id
+
+                let conceptEdit = operationsArray[i].concept
+                let amountEdit = operationsArray[i].amount
+                let typeEdit = operationsArray[i].type
+         
+                let editOperation = new Object();
+
+                    editOperation.id = idOperation;
+                    editOperation.concept = conceptEdit,
+                    editOperation.amount = amountEdit,
+                    editOperation.type = typeEdit
+
+    
+                localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
     
     
-            //alert('ok')
+            alert('ok')
         })
      //   editingButton(operationsArray[i].id)
     // alert(editingId)
