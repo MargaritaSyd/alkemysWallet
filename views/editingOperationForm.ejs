@@ -14,14 +14,14 @@
 <%}%>
 
    <h2> Editá una operación: </h1>
-    <form action="/edit_operation" method="POST">
+    <form id="editingForm" action="/edit_operation/<%=operation.id%>" method="POST">
         <div>
             <label> En concepto de: </label>
-            <input id="editConcept" type="text" name="concept">
+            <input id="editConcept" type="text" name="concept" value="<%=operation.concept%>">
         </div>
         <div>
             <label> Monto: </label>
-            <input id="editAmount" type="number" name="amount">
+            <input id="editAmount" type="number" name="amount" value="<%=operation.amount%>">
         </div>
         <div>
           <label>Categoría</label>
@@ -34,28 +34,19 @@
         </div>
         <div>
             <label> Fecha </label>
-            <input id="editDate" type="date" name="date">
-        </div>
-        <div>
-            <input id="editIncome" type="radio" name="incomeOutcome" value="income">
-            <label>
-              Ingreso
-            </label>
-        </div>
-        <div>
-            <input id="editOutcome" type="radio" name="incomeOutcome" value="outcome" checked>
-            <label>
-              Egreso
-            </label>
+            <input id="editDate" type="date" name="date" value="<%=operation.date%>">
         </div>
         <div>
             <button id="editOperationSubmit" type="submit">Editar operación</button>
-            <button id="deleteOperationSubmit" type="submit">Editar operación</button>
+            <button id="deleteOperationSubmit" type="submit">Eliminar operación</button>
         </div>
 
 
 
     </form>
     <script src="/javascript/userData.js"></script>
+
+    <script src="/javascript/editOperationAction.js"></script>
+
 </body>
 </html>

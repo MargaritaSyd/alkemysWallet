@@ -178,56 +178,33 @@ let indexController = {
        },
        editOperationForm: (req,res) => {
 
-
-        db.category.findAll()
-        
-        .then(function(category){
+        let operation = db.operations.findByPk(req.params.id)
+        let category = db.category.findAll()
+        Promise.all([operation , category])
+        .then(function([operation , category]){
           //  console.log(userToLog)         
-            res.render('editingOperationForm' , {category})
+            res.render('editingOperationForm' , {operation , category})
         })
         
     },
 
 
     editOperationFormPost: (req,res) => {
-  
-/*
-                    db.product.update({
-                        name: req.body.name,
+       // db.operations.findByPK(req.params.id)
+        db.operations.update(
+                    {
+                        concept: req.body.concept,
+                        amount: req.body.amount,
+                        date: req.body.date,
                         id_category: req.body.category,
-                        description: req.body.description,
-                        stock: req.body.stock,
-                        price: req.body.price,
-                        image_product: req.file.filename,
-                        showing: showing
-                        }, {
-                            where: {id:req.params.id}
-                        })               
-                }      
+                      
 
-*/      
-            db.operations.update({
-                /*
-                concept: req.body.concept,
-                amount: req.body.amount,
-                type: req.body.incomeOutcome,
-                date: req.body.date,
-                id_category: req.body.category,
-                id_users: req.body.id_user,
-            */
-                concept: "ok",
-                amount: 1,
-                type: 'ok',
-                date: 'ok',
-                id_category: 1,
-                }, {
-                    where: {id:1}
-                })
-                
+                    } , {
+                        where: {id: req.params.id}
+                    }
+                )
             
-            
-     //   })
-      
+        
         .then(function(){
             res.render('home')           
         })

@@ -73,12 +73,11 @@ fetch("http://localhost:4000/api_operations")
         editI.id = editingId
         deleteI.innerHTML = 'delete'
 
+// addEvent to edit button
         let editButton = document.getElementById(editingId)
         editButton.addEventListener("click" , function(e){
 
-            
                 let idOperation = e.target.parentElement.id
-
                 let conceptEdit = operationsArray[i].concept
                 let amountEdit = operationsArray[i].amount
                 let typeEdit = operationsArray[i].type
@@ -92,30 +91,13 @@ fetch("http://localhost:4000/api_operations")
 
     
                 localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
+                window.location.assign("http://localhost:4000/edit_operation/" + idOperation)
+
     
-    
-            alert('ok')
         })
-     //   editingButton(operationsArray[i].id)
-    // alert(editingId)
     }
 })    
           
-
-/*
-
-// Arrays ingresos - egresos          
-        let incomeOperations = []
-        let outcomeOperations = []
-       for(let i=0; i<parseOperationsList.length; i++){
-           if(parseOperationsList[i].newtype == 'income'){
-            incomeOperations.push(parseOperationsList[i])
-           } else {
-               outcomeOperations.push(parseOperationsList[i])
-           }
-       }
-       */
- 
    
     
 })
