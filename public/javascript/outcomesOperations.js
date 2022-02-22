@@ -13,15 +13,11 @@ window.addEventListener('load' , function(){
     var cell1 = row0.insertCell(0); //Date
     var cell2 = row0.insertCell(1); //COncept
     var cell3 = row0.insertCell(2); //Amount
-    var cell4 = row0.insertCell(3); //Edit
-    var cell5 = row0.insertCell(4);  //Delete
-
+ 
     cell1.innerHTML = "FECHA";   //Cell Date
     cell2.innerHTML = 'CONCEPTO'; //Cell Concept
     cell3.innerHTML = 'MONTO'; //Cell Amount
-    cell4.innerHTML = "";  //Cell edit
-    cell5.innerHTML = ''; //cellDelete
-
+  
 fetch("http://localhost:4000/api_operations")
 .then(function(r){
     return r.json();
@@ -55,15 +51,11 @@ fetch("http://localhost:4000/api_operations")
         var dateI = rowI.insertCell(0)
         var conceptI = rowI.insertCell(1)
         var amountI = rowI.insertCell(2)
-        var editI = rowI.insertCell(3)
-        var deleteI = rowI.insertCell(4)
-    
+
         dateI.innerHTML = outcomeOperations[i].date
         conceptI.innerHTML = outcomeOperations[i].concept
         amountI.innerHTML = outcomeOperations[i].amount
-        editI.innerHTML = 'edit'
-        deleteI.innerHTML = 'delete'
-
+      
     }
 })    
           
