@@ -3,22 +3,12 @@ window.addEventListener('load' , function(){
 
     let user = JSON.parse(localStorage.getItem('userLogged'))
     let user_id = user.id
+    let titleBalance = document.getElementById('titleBalance')
 
-    
+       
     let tableOperations = document.getElementById('tableOperations')
 
     //last 10 operations:
-/*
-    function editingButton(id){
-           let id = document.getElementById(id);
-            id.addEventListener("click" , function(){
-                alert('ok')
-            })
-           // e.preventDefault()
-          //  alert('ok')
-    
-    }
-*/
     var row0 = tableOperations.insertRow(0); //Initail Cell
    
     var cell1 = row0.insertCell(0); //Date
@@ -91,6 +81,6 @@ fetch("http://localhost:4000/api_operations")
     }
 })    
           
-   
+
     
 })

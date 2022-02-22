@@ -1,5 +1,6 @@
 function notLogged(req, res, next) {
-	if (!req.session.userLogged) {
+	let user = req.session.user
+	if (user) {
 		return res.redirect('login');
 	}
 	next();
