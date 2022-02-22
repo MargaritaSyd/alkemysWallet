@@ -1,0 +1,30 @@
+body{
+    background-color:#242038;
+
+    margin-left: 10%;
+
+    margin-top: 5%;
+    
+}
+.title_text{
+    color: #CAC4CE;
+}
+.label_input{
+    color: #8D86C9
+}
+.table_style{
+    color: #725AC1;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 50%;
+  }
+.input_content{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 20%;
+    margin-bottom: 10px;
+}
+.cell_style{
+    margin-top: 2px red;
+}

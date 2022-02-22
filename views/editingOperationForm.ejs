@@ -1,56 +1,58 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <title>Alkemy's Wallet</title>
+    </head>
+    
+    <body>
 
-  <% if(locals.errorMessage != undefined){%>
-    <div class="cajaMensajeError">
-        <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
-    </div>
-<%}%>
+    <% if(locals.errorMessage != undefined){%>
+        <div class="cajaMensajeError">
+            <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+        </div>
+    <%}%>
 
-   <h2> Editá una operación: </h1>
-    <form id="editingForm" action="/edit_operation/<%=operation.id%>" method="POST">
-        <div>
-            <label> En concepto de: </label>
-            <input id="editConcept" type="text" name="concept" value="<%=operation.concept%>">
-        </div>
-        <div>
-            <label> Monto: </label>
-            <input id="editAmount" type="number" name="amount" value="<%=operation.amount%>">
-        </div>
-        <div>
-          <label>Categoría</label>
-          <select name="editCategory">                          
-              <option value="" disabled selected>Seleccione una categoría</option>
-              <% for(let i=0; i<category.length; i++){ %>
-                    <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
-              <%}%> 
-          </select>
-        </div>
-        <div>
-            <label> Fecha </label>
-            <input id="editDate" type="date" name="date" value="<%=operation.date%>">
-        </div>
-        <div>
-            <label> Tipo </label>
-            <input readonly type="text" name="type" value="<%=operation.type%>">
-        </div>
-        
-        <div>
-            <button id="editOperationSubmit" type="submit">Editar operación</button>
+    <h2 class="title_text"> Editá una operación: </h1>
+        <form id="editingForm" action="/edit_operation/<%=operation.id%>" method="POST">
+            <div class="input_content">
+                <label class="label_input"> En concepto de: </label>
+                <input id="editConcept" type="text" name="concept" value="<%=operation.concept%>">
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Monto: </label>
+                <input id="editAmount" type="number" name="amount" value="<%=operation.amount%>">
+            </div>
+            <div class="input_content">
+            <label class="label_input">Categoría</label>
+            <select name="editCategory">                          
+                <option value="" disabled selected>Seleccione una categoría</option>
+                <% for(let i=0; i<category.length; i++){ %>
+                        <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
+                <%}%> 
+            </select>
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Fecha </label>
+                <input id="editDate" type="date" name="date" value="<%=operation.date%>">
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Tipo </label>
+                <input readonly type="text" name="type" value="<%=operation.type%>">
+            </div>
             
-        </div>
+            <div class="input_content">
+                <button id="editOperationSubmit" type="submit">Editar operación</button>
+                
+            </div>
 
 
 
-    </form>
-    <script src="/javascript/userData.js"></script>
+        </form>
+        <script src="/javascript/userData.js"></script>
 
 
-</body>
+    </body>
 </html>

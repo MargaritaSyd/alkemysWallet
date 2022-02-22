@@ -1,11 +1,12 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <title>Alkemy's Wallet</title>
+    </head>
+    <body>
 
   <% if(locals.errorMessage != undefined){%>
     <div class="cajaMensajeError">
@@ -13,21 +14,21 @@
     </div>
 <%}%>
 
-   <h2> Eliminá una operación: </h1>
+   <h2 class="title_text"> Eliminá una operación: </h1>
     <form id="editingForm" action="/delete_operation/<%=operation.id%>" method="POST">
-        <div>
-            <label> En concepto de: </label>
+        <div class="input_content">
+            <label class="label_input"> En concepto de: </label>
             <input id="editConcept" type="text" name="concept" value="<%=operation.concept%>" readonly>
         </div>
-        <div>
-            <label> Monto: </label>
+        <div class="input_content">
+            <label class="label_input"> Monto: </label>
             <input id="editAmount" type="number" name="amount" value="<%=operation.amount%>" readonly>
         </div>
-        <div>
-            <label> Fecha </label>
+        <div class="input_content">
+            <label class="label_input"> Fecha </label>
             <input id="editDate" type="date" name="date" value="<%=operation.date%>" readonly>
         </div>
-        <div>
+        <div class="input_content">
             <button type="submit">Eliminar operación</button>
        
         </div>

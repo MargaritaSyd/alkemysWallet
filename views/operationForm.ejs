@@ -1,62 +1,63 @@
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Alkemy's Wallet</title>
+  </head>
+  <body>
 
-  <% if(locals.errorMessage != undefined){%>
-    <div class="cajaMensajeError">
-        <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
-    </div>
-<%}%>
+    <% if(locals.errorMessage != undefined){%>
+      <div class="cajaMensajeError">
+          <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+      </div>
+  <%}%>
 
-   <h2> Registrá una operación: </h1>
-    <form action="/new_operation" method="POST">
-        <input id="userDataId" style="display: none;" name="id_user">  
-        <div>
-            <label> En concepto de: </label>
-            <input id="oneConcept" type="text" name="concept">
-        </div>
-        <div>
-            <label> Monto: </label>
-            <input id="oneAmount" type="number" name="amount">
-        </div>
-        <div>
-          <label>Categoría</label>
-          <select name="category">                          
-              <option value="" disabled selected>Seleccione una categoría</option>
-              <% for(let i=0; i<category.length; i++){ %>
-                    <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
-              <%}%> 
-          </select>
-        </div>
-        <div>
-            <label> Fecha </label>
-            <input id="oneDate" type="date" name="date">
-        </div>
-        <div>
-            <input id="oneIncome" type="radio" name="incomeOutcome" value="income">
-            <label>
-              Ingreso
-            </label>
+    <h2 class="title_text"> Registrá una operación: </h1>
+      <form action="/new_operation" method="POST">
+          <input id="userDataId" style="display: none;" name="id_user">  
+          <div class="input_content">
+              <label class="label_input"> En concepto de: </label>
+              <input id="oneConcept" type="text" name="concept">
           </div>
-          <div>
-            <input id="oneOutcome" type="radio" name="incomeOutcome" value="outcome" checked>
-            <label>
-              Egreso
-            </label>
+          <div class="input_content">
+              <label class="label_input"> Monto: </label>
+              <input id="oneAmount" type="number" name="amount">
           </div>
-          <div>
-            <button id="newOperationSubmit" type="submit">Registrar operación</button>
-        </div>
+          <div class="input_content">
+            <label class="label_input">Categoría</label>
+            <select name="category">                          
+                <option value="" disabled selected>Seleccione una categoría</option>
+                <% for(let i=0; i<category.length; i++){ %>
+                      <option value="<%=category[i].id%>"><%=category[i].category_name%></option>
+                <%}%> 
+            </select>
+          </div>
+          <div class="input_content">
+              <label class="label_input"> Fecha </label>
+              <input id="oneDate" type="date" name="date">
+          </div>
+          <div >
+              <input id="oneIncome" type="radio" name="incomeOutcome" value="income">
+              <label class="label_input">
+                Ingreso
+              </label>
+            </div>
+            <div >
+              <input id="oneOutcome" type="radio" name="incomeOutcome" value="outcome" checked>
+              <label class="label_input">
+                Egreso
+              </label>
+            </div>
+            <div class="input_content">
+              <button id="newOperationSubmit" type="submit">Registrar operación</button>
+          </div>
 
 
 
-    </form>
-    <script src="/javascript/newOperation.js"></script> 
-    <script src="/javascript/userData.js"></script>
-</body>
+      </form>
+      <script src="/javascript/newOperation.js"></script> 
+      <script src="/javascript/userData.js"></script>
+  </body>
 </html>

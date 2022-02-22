@@ -1,33 +1,34 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <title>Alkemy's Wallet</title>
+    </head>
+    <body>
 
-    <h1> Bienvenid@! </h1>
-    <h2> Ingresá a tu cuenta</h2>
-    <% if(locals.errorMessage != undefined){%>
-        <div class="cajaMensajeError">
-            <div class="mensajeError"> <p style= "color:red"> Credenciales Inválidas </p></div>
-        </div>
-    <%}%>
-    <form action="/login" method="POST" >
-        <div>
-            <label> Email </label>
-            <input type="email"  name="mail">
-        </div>
-        <div>
-            <label> Contraseña </label>
-            <input type="password"  name="password">
-        </div>
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
-    <h4> No estas registrado?</h4> 
-    <a href="/register">Registrate!</a>
-</body>
+        <h1 class="title_text"> Bienvenid@! </h1>
+        <h2> Ingresá a tu cuenta</h2>
+        <% if(locals.errorMessage != undefined){%>
+            <div class="cajaMensajeError">
+                <div class="mensajeError"> <p style= "color:red"> Credenciales Inválidas </p></div>
+            </div>
+        <%}%>
+        <form action="/login" method="POST" >
+            <div class="input_content">
+                <label class="label_input"> Email </label>
+                <input type="email"  name="mail">
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Contraseña </label>
+                <input type="password"  name="password">
+            </div>
+            <div class="input_content">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+        <h4> No estas registrado?</h4> 
+        <a href="/register">Registrate!</a>
+    </body>
 </html>

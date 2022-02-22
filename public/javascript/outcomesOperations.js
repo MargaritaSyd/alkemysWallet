@@ -15,6 +15,7 @@ window.addEventListener('load' , function(){
     var cell3 = row0.insertCell(2); //Amount
  
     cell1.innerHTML = "FECHA";   //Cell Date
+    cell1.className = "cell_style"
     cell2.innerHTML = 'CONCEPTO'; //Cell Concept
     cell3.innerHTML = 'MONTO'; //Cell Amount
   
@@ -53,6 +54,7 @@ fetch("http://localhost:4000/api_operations")
         var amountI = rowI.insertCell(2)
 
         dateI.innerHTML = outcomeOperations[i].date
+       
         conceptI.innerHTML = outcomeOperations[i].concept
         amountI.innerHTML = outcomeOperations[i].amount
       

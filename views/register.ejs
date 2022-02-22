@@ -1,35 +1,36 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Registrate!</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/styles.css">
+        <title>Alkemy's Wallet</title>
+    </head>
+    <body>
+        <h1 class="title_text"> Registrate!</h1>
 
-    <% if(locals.errorMessage != undefined){%>
-        <div class="cajaMensajeError">
-            <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
-        </div>
-    <%}%>
-    <form action="/register" method="POST" >
-        <div>
-            <label> Nombre </label>
-                <input type="text" name="name" >
-        </div>
-        <div>
-            <label> Email </label>
-                <input type="email" name="mail" >
-          
-        </div>
-        <div>
-            <label> Contraseña </label>
-            <input type="password"  name="password">
-        </div>
-        <div>
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
-</body>
+        <% if(locals.errorMessage != undefined){%>
+            <div class="cajaMensajeError">
+                <div class="mensajeError"> <p style= "color:red"> Este mail está asociado a una cuenta </p></div>
+            </div>
+        <%}%>
+        <form action="/register" method="POST" >
+            <div class="input_content">
+                <label class="label_input"> Nombre </label>
+                    <input type="text" name="name" >
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Email </label>
+                    <input type="email" name="mail" >
+            
+            </div>
+            <div class="input_content">
+                <label class="label_input"> Contraseña </label>
+                <input type="password"  name="password">
+            </div>
+            <div class="input_content">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </body>
 </html>

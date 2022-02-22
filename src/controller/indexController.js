@@ -3,20 +3,10 @@ let fs = require ('fs');
 let path = require ('path');
 const bcryptjs = require('bcryptjs');
 
-//let usersPath = path.join(__dirname,"../db/user.json");
-//let userData = fs.readFileSync (usersPath, 'utf-8');
 let db = require('../database/models');
 const operations = require('../database/models/operations');
 const category = require('../database/models/category');
 let Op = db.sequelize.Op;
-
-// let userList ;
-// if (userData == "") {
-//     userList = [];
-// } 
-// else { 
-//     userList = JSON.parse(userData);
-// };
 
 
 let indexController = {
@@ -37,8 +27,7 @@ let indexController = {
         db.category.findAll()
         
         .then(function(category){
-          //  console.log(userToLog)         
-            res.render('operationForm' , {category})
+          res.render('operationForm' , {category})
         })
         
     },
@@ -63,7 +52,7 @@ let indexController = {
      //   })
       
         .then(function(){
-            res.render('home')           
+            res.redirect('/')           
         })
         .catch(function(e){
             res.render('home' , { errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
@@ -88,7 +77,7 @@ let indexController = {
                    if(passwordOk){ 
                         //req.session.user= userToLog;   
                         //res.render('home' , {userToLog})
-                        res.render('home')
+                        res.redirect('/')
 
                    } else { 
                         res.render('login' , {errorMessage})
@@ -206,7 +195,7 @@ let indexController = {
             
         
         .then(function(){
-            res.render('home')           
+            res.redirect('/')           
         })
         .catch(function(e){
             res.render('home' , { errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})
@@ -237,7 +226,7 @@ let indexController = {
             
         
         .then(function(){
-            res.render('home')           
+            res.redirect('/')           
         })
         .catch(function(e){
             res.render('home' , { errorMessage: [{msg:"Se produjo un error, intentalo otra vez!"}]})

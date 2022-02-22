@@ -43,10 +43,10 @@ fetch("http://localhost:4000/api_operations")
     let operationsArray = []
     for( operation of data.data){
         if(operation.id_users == user_id){
-            operationsArray.push(operation)
+            operationsArray.unshift(operation)
         }
     }
-    for(let i=0; i<operationsArray.length; i++){
+    for(let i=0; i<operationsArray.length && i<10; i++){
         let rowPosition = i + 1
         var rowI = tableOperations.insertRow(rowPosition); // Operation Cell
 
@@ -76,20 +76,7 @@ fetch("http://localhost:4000/api_operations")
         editButton.addEventListener("click" , function(e){
 
                 let idOperation = e.target.parentElement.id
-                // let conceptEdit = operationsArray[i].concept
-                // let amountEdit = operationsArray[i].amount
-                // let typeEdit = operationsArray[i].type
-         
-                // let editOperation = new Object();
-
-                //     editOperation.id = idOperation;
-                //     editOperation.concept = conceptEdit,
-                //     editOperation.amount = amountEdit,
-                //     editOperation.type = typeEdit
-
-    
-                // localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
-                window.location.assign("http://localhost:4000/edit_operation/" + idOperation)
+                  window.location.assign("http://localhost:4000/edit_operation/" + idOperation)
 
     
         })
@@ -97,21 +84,8 @@ fetch("http://localhost:4000/api_operations")
             let deleteButton = document.getElementById(deleteId)
             deleteButton.addEventListener("click" , function(e){
 
-                    let idOperation = editingId
-                    // let conceptEdit = operationsArray[i].concept
-                    // let amountEdit = operationsArray[i].amount
-                    // let typeEdit = operationsArray[i].type
-            
-                    // let editOperation = new Object();
-
-                    //     editOperation.id = idOperation;
-                    //     editOperation.concept = conceptEdit,
-                    //     editOperation.amount = amountEdit,
-                    //     editOperation.type = typeEdit
-
-
-                    // localStorage.setItem("setEditOperation" , JSON.stringify(editOperation));
-                    window.location.assign("http://localhost:4000/delete_operation/" + idOperation)
+                let idOperation = editingId
+                window.location.assign("http://localhost:4000/delete_operation/" + idOperation)
             })
 
     }
